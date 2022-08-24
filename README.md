@@ -24,7 +24,7 @@ fc1_adam = Adam(lr=0.2, lr_scheduler=sch)
 fc2_adam = Adam(lr=0.2, lr_scheduler=sch)
 
 ### Neural Layer
-fc_layer1 = FullyConnected(8, act_fn=Tanh(), optimizer=fc1_adam)
+fc_layer1 = FullyConnected(8, act_fn=Tanh(), optimizer=fc1_adam, init="he_normal")
 fc_layer2 = FullyConnected(2, act_fn=Tanh(), optimizer=fc2_adam)
 sm_layer = Softmax()
 

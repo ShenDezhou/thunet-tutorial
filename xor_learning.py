@@ -3,7 +3,7 @@ import sys
 sys.path.append("../thunet")
 import numpy as np
 from time import time
-
+np.set_printoptions(precision=8)
 from thunet.neural_nets.activations import ReLU, Sigmoid, Tanh
 from thunet.neural_nets.layers import Softmax, FullyConnected, Embedding
 from thunet.neural_nets.losses import SquaredError, CrossEntropy
@@ -15,7 +15,7 @@ loss_func = CrossEntropy()
 sch = ExponentialScheduler(lr=0.2)
 fc1_adam = Adam(lr=0.2, lr_scheduler=sch)
 fc2_adam = Adam(lr=0.2, lr_scheduler=sch)
-fc_layer1 = FullyConnected(8, act_fn=Tanh(), optimizer=fc1_adam)
+fc_layer1 = FullyConnected(8, act_fn=Tanh(), optimizer=fc1_adam, init="he_normal")
 fc_layer2 = FullyConnected(2, act_fn=Tanh(), optimizer=fc2_adam)
 sm_layer = Softmax()
 
@@ -32,7 +32,7 @@ y_train = np.eye(len([0, 1]))[Y]
 prev_loss = np.inf
 VERBOSE = False
 
-for i in range(10):
+for i in range(1000):
     loss, estart = 0.0, time()
     batch_size = 1
     batch_generator, nb = minibatch(X_train, batch_size, shuffle=True)
