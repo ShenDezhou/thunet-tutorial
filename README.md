@@ -1,34 +1,45 @@
-# This tutorial shows how to build a neural network with THUNET.
+# What is THUNET?
+A deep learning net/framework named "TsingHua University NET", short for "THUNET", is for non-commercial, educational, scientific purpose for the deep learning community.
 
-## XOR learning
-In `XOR` lesson, we can build a model which can make XOR operand.
-The XOR operand in Computer Science is that: it tells two operators if they are different or not.
+# How to build a neural network with THUNET?
+Next, I will explain how to use THUNET to build a model to compute XOR operator.
 
+## Tutorial-1: XOR operand
+The XOR operand is that: it tells two operands if they are different or not.
 Specifically, 1 xor 0 makes 1, and 0 xor 0 makes 0.
 
-### Preparation
-We should make a python environment ready. According to THUNET's guideline, the following python versions are suffice: 2.7, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10.
+## What You Can Learn?
+In this tutorial, I am telling how to build a model to act as 'XOR' operator, which is a common problem in Computer Science.
+After finishing the lesson, readers should be able to create Activation, Loss, Layer, Scheduler and Optimizer objects, which are key components of the deep learning network.
+Readers will learn how to prepare data and train the model.
+And in the end, readers have a clear understanding that the model layers' Forward, Backward and Update process.
 
-### Python Packages
-Install these packages by pip command:
+### Preparation
+We should make a python environment ready. According to [THUNET's guideline](https://pypi.org/project/thunet), the following python versions are required: 2.7, 3.5, 3.6, 3.7, 3.8, 3.9, or 3.10.
+
+### Python Packages Install
+Install the package by pip command:
 `pip install thunet`
 
-### Loss function
+### Network Detail
+If you are not interested in details, you can skip this part.
+
+#### Loss function
 loss_func = CrossEntropy()
 
-### Scheduler
+#### Scheduler
 sch = ConstantScheduler(lr=0.01)
 
-### Optimizer
+#### Optimizer
 fc1_adam = Adam(lr=0.01, lr_scheduler=sch)
 fc2_adam = Adam(lr=0.01, lr_scheduler=sch)
 
-### Neural Layer
+#### Neural Layer
 fc_layer1 = FullyConnected(16, act_fn=Tanh(), optimizer=fc1_adam)
 fc_layer2 = FullyConnected(2, act_fn=Tanh(), optimizer=fc2_adam)
 sm_layer = Softmax()
 
-### Data preparation
+#### Data preparation
 X = [[0, 1],
      [1, 0],
      [0, 0],
@@ -40,12 +51,12 @@ Y = [1,
 X_train = np.array(X)
 y_train = np.eye(len([0, 1]))[Y]
 
-### Make Batch using minibatch
+#### Make Batch using minibatch
 
 batch_generator, nb = minibatch(X_train, batch_size, shuffle=True)
 for j, b_ix in enumerate(batch_generator):
 
-### Layer Weight Update
+#### Layer Weight Update
 y_pred_batch = fc_layer1.forward(X_batch)
 y_pred_batch = fc_layer2.forward(y_pred_batch)
 y_pred_batch = sm_layer.forward(y_pred_batch)
@@ -58,7 +69,7 @@ sm_layer.update()
 fc_layer2.update()
 fc_layer1.update()
 
-### Compute the loss
+#### Compute the loss
 batch_loss = loss_func(y_real_batch, y_pred_batch)
 
 ### Training Result
@@ -67,7 +78,7 @@ We print the actual value followed by the predicted value.
 The model cannot predict exact same as the actual value, but using `argmax` function, we are able to tell the correct class.
 
 The actual value is represented by one-hot vector. Thus, [1, 0] shows it belongs to class-0, and [0, 1] shows that it belongs to class-1.
-And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, and [0.48051901 0.51948099] shows it is class-1.
+And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, and [0.48051901 0.51948099] shows it is class-1(counting from 1, the first class).
 ```
 [[1. 0.]] [[0.5 0.5]]
 [[0. 1.]] [[0.64168317 0.35831683]]
@@ -121,14 +132,9 @@ And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, an
 [Epoch 10] Avg. loss: 0.648649  Delta: -0.002481 (0.00m/epoch)
 ```
 
-### Summary
-In this lesson, we have learned how to build a model to tell the 'XOR' operator which is a common problem in Computer Science.
-After finishing the lesson, we are able to create Activation, Loss, Layer, Scheduler and Optimizer objects.
-We will know how to prepare data and train the model using it.
-Here we have a clear understanding that the model layers' forward, backward and update process.
-We are able to perform other challenging task in the future.
-
+### Test Result
+From the output of epoch-10, we can compute the accuracy of the model, it has accuracy of 100%.
 
 ### Supplimentary
-The source code of this lesson is in [xor_learning](xor_learning.py).
-The students can use it to get a general picture of a deep learning model.
+Readers can use this tutorial to get a general picture of a deep learning model.
+Github: [thunet-tutorial](https://github.com/ShenDezhou/thunet-tutorial)
