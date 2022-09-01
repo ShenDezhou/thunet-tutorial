@@ -17,14 +17,14 @@ Install these packages by pip command:
 loss_func = CrossEntropy()
 
 ### Scheduler
-sch = ExponentialScheduler(lr=0.2)
+sch = ConstantScheduler(lr=0.01)
 
 ### Optimizer
-fc1_adam = Adam(lr=0.2, lr_scheduler=sch)
-fc2_adam = Adam(lr=0.2, lr_scheduler=sch)
+fc1_adam = Adam(lr=0.01, lr_scheduler=sch)
+fc2_adam = Adam(lr=0.01, lr_scheduler=sch)
 
 ### Neural Layer
-fc_layer1 = FullyConnected(8, act_fn=Tanh(), optimizer=fc1_adam, init="he_normal")
+fc_layer1 = FullyConnected(16, act_fn=Tanh(), optimizer=fc1_adam)
 fc_layer2 = FullyConnected(2, act_fn=Tanh(), optimizer=fc2_adam)
 sm_layer = Softmax()
 
@@ -62,6 +62,7 @@ fc_layer1.update()
 batch_loss = loss_func(y_real_batch, y_pred_batch)
 
 ### Training Result
+*This part changes according to different experiment.* There is a confidential level of 60%(3/5) to reproduce the result. 
 We print the actual value followed by the predicted value.
 The model cannot predict exact same as the actual value, but using `argmax` function, we are able to tell the correct class.
 
