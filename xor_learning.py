@@ -12,9 +12,9 @@ from thunet.neural_nets.optimizers import SGD, Adam
 from thunet.neural_nets.utils import minibatch
 
 loss_func = CrossEntropy()
-sch = NoamScheduler(lr=0.0001)
-fc1_adam = Adam(lr=0.0001, lr_scheduler=sch)
-fc2_adam = Adam(lr=0.0001, lr_scheduler=sch)
+sch = NoamScheduler(lr=0.00001)
+fc1_adam = Adam(lr=0.00001, lr_scheduler=sch)
+fc2_adam = Adam(lr=0.00001, lr_scheduler=sch)
 fc_layer1 = FullyConnected(20, act_fn=Tanh(), optimizer=fc1_adam)
 fc_layer2 = FullyConnected(2, act_fn=Tanh(), optimizer=fc2_adam)
 sm_layer = Softmax()
