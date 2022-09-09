@@ -5,6 +5,11 @@ A deep learning net/framework named "TsingHua University NET", short for "THUNET
 Next, I will explain how to use THUNET to build a model to tell which one is subnormal number from two operands.
 
 ## Tutorial-2: Subnormal picking operand
+**Subnormal background** 
+In Computer Science, floating value are stored with precision loss in storage. Thus with limit bytes for a float number, there is a minimal number that a float can represent. For example, normally a number smaller than 1.1754944e-38 are considered as zero, however, with software technology, even smaller number can be represented, however, there is still a limit for this, that is called subnormal number, which is 
+1.4012985e-45 for x86_64 CPU in most case.
+
+
 The XOR operand is that: it tells two small float number operands which is not subnormal float number.
 Specifically, 0 tells the first is subnormal number, and 1 tells the second.
 
@@ -93,7 +98,3 @@ From the output of epoch-1000, we can compute the accuracy of the model, it has 
 ### Supplimentary
 Readers can use this tutorial to get a general picture of a deep learning model.
 Github: [thunet-tutorial](https://github.com/ShenDezhou/thunet-tutorial)
-
-# Changelog
-
-> 2022.9.9 202209_v1 In XOR-learning tutorial, modify Constant scheduler with Noam scheduler to have more chance to convergence.
