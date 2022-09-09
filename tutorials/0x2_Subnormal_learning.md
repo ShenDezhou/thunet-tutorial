@@ -10,7 +10,7 @@ In Computer Science, floating value are stored with precision loss in storage. T
 1.4012985e-45 for x86_64 CPU in most case.
 
 
-The XOR operand is that: it tells two small float number operands which is not subnormal float number.
+The Subnormal picking operand is that: it tells two small float number operands which is not subnormal float number, in other words, which one is a normal number.
 Specifically, 0 tells the first is subnormal number, and 1 tells the second.
 
 ## What You Can Learn?
