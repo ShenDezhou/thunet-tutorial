@@ -138,3 +138,7 @@ From the output of epoch-10, we can compute the accuracy of the model, it has ac
 ### Supplimentary
 Readers can use this tutorial to get a general picture of a deep learning model.
 Github: [thunet-tutorial](https://github.com/ShenDezhou/thunet-tutorial)
+
+# Changelog
+
+> 2022.9.9 202209_v1 modify Constant scheduler with Noam scheduler to have more chance to convergence.
