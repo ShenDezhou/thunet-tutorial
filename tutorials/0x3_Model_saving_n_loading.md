@@ -2,10 +2,13 @@
 A deep learning net/framework named "TsingHua University NET", short for "THUNET", is for non-commercial, educational, scientific purpose for the deep learning community.
 
 # How to build a neural network with THUNET?
-Next, I will explain how to use THUNET to save and load a model.
+Next, I will explain how to use THUNET to save and load a model. Models are saved in 7z format, thus gain higher compression rate than zip format by 10%+.[Zip / 7zip Compression Differences](https://stackoverflow.com/questions/21992551/zip-7zip-compression-differences)
 
 ## Tutorial-3: Model Saving and Loading
-Model serialization.
+Model serialization makes use of the 7z format instead of the legacy zip format for higher compression rate.
+
+## Referred from Wiki article on comparison of zip and 7z
+`In 2011, TopTenReviews found that the 7z compression was at least 17% better than ZIP,[15] and 7-Zip's own site has since 2002 reported that while compression ratio results are very dependent upon the data used for the tests, "Usually, 7-Zip compresses to 7z format 30–70% better than to zip format, and 7-Zip compresses to zip format 2–10% better than most other zip-compatible programs.[16]"`
 
 ## What You Can Learn?
 In this tutorial, I am telling how to build a model, save it, load it, which is a fundamental operation.
