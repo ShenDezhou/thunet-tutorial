@@ -57,6 +57,8 @@ batch_generator, nb = minibatch(X_train, batch_size, shuffle=True)
 for j, b_ix in enumerate(batch_generator):
 
 #### Layer Weight Update
+* The correct update code please refer [xor_learning_backward](xor_learning_backward.py)
+
 y_pred_batch = fc_layer1.forward(X_batch)
 y_pred_batch = fc_layer2.forward(y_pred_batch)
 y_pred_batch = sm_layer.forward(y_pred_batch)
