@@ -1,11 +1,12 @@
 # What is THUNET?
 A deep learning net/framework named "TsingHua University NET", short for "THUNET", is for non-commercial, educational, scientific purpose for the deep learning community.
+Today, I am proud to announce that all the manditory component of the framework, THUNET, have been completed. Students, teachers and scientiests are free and welcome to use this deep learning framework.
 
 # How to build a neural network with THUNET?
 Next, I will explain how to use THUNET to build a model to compute XOR operator.
 And I will explain the steps in detail: forward, loss, backward grad, backward.
 
-## Tutorial-4: XOR operand
+## Tutorial-4: XOR operand, with MLP layers
 The XOR operand is that: it tells two operands if they are different or not.
 Specifically, 1 xor 0 makes 1, and 0 xor 0 makes 0.
 
@@ -103,7 +104,7 @@ save(model, "model_lake/03_xor_model_io.thu")
 
 ### Training Result
 By use model checkpoints, you will be able to get constant results. The saving and loading step in the tutorial save the training time in getting the correct model.
-There is a confidential level of 100% to reproduce the result if you use a pretrained correct model. 
+There is a confidential level of 100% to reproduce the result if you use a pretrained correct model. You will constantly get the same correct model using the pretrain-finetune pattern. 
 We print the actual value followed by the predicted value.
 The model cannot predict exact same as the actual value, but using `argmax` function, we are able to tell the correct class.
 
