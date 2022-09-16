@@ -1,6 +1,6 @@
 # What is THUNET?
 A deep learning net/framework named "TsingHua University NET", short for "THUNET", is for non-commercial, educational, scientific purpose for the deep learning community.
-Today, I am proud to announce that all the manditory component of the framework, THUNET, have been completed. Students, teachers and scientiests are free and welcome to use this deep learning framework.
+Today, I am proud to announce that all the mandatory component of the framework, THUNET, have been completed. Students, teachers and scientiests are free and welcome to use this deep learning framework.
 
 # How to build a neural network with THUNET?
 Next, I will explain how to use THUNET to build a model to compute XOR operator.
