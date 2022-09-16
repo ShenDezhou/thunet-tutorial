@@ -144,3 +144,4 @@ Github: [thunet-tutorial](https://github.com/ShenDezhou/thunet-tutorial)
 > 2022.9.9 202209_v1 modify Constant scheduler with Noam scheduler to have more chance to convergence.
 > 2022.9.9 add [Subnormal learning tutorial](/tutorials/0x2_Subnormal_learning.md)
 > 2022.9.14 add [Model saving and loading tutorial](/tutorials/0x3_Model_saving_n_loading.md)
+> 2022.9.16 add [XOR MLP tutorial](/tutorials/0x4_XOR_implementation_with_MLP.md)
