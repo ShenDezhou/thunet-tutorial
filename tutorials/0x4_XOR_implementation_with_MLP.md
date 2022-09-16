@@ -121,6 +121,18 @@ And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, an
 ### Test Result
 From the output of epoch-1000, we can compute the accuracy of the model, it has accuracy of 100%.
 
+
+
+### Visualization of the Training Process
+From the following images, we can see that if we see each layer's weight matrix, and use 2d plot to see the adjacent rows. We can see that the training process make the plot visually different.
+
+![initialize](/images/initialized-xor.png)
+Before training: randomly initialized weights of adjacent rows.
+
+![trained](/images/trained-xor.png)
+Fully Trained: adjacent rows weights different from the beginning, converged to a certain point.
+
+
 ### Supplimentary
 Readers can use this tutorial to get a general picture of a deep learning model.
 Github: [thunet-tutorial](https://github.com/ShenDezhou/thunet-tutorial)
