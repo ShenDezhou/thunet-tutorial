@@ -109,7 +109,7 @@ We print the actual value followed by the predicted value.
 The model cannot predict exact same as the actual value, but using `argmax` function, we are able to tell the correct class.
 
 The actual value is represented by one-hot vector. Thus, [1, 0] shows it belongs to class-0, and [0, 1] shows that it belongs to class-1.
-And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, and [0.48051901 0.51948099] shows it is class-1(counting from 1, the first class).
+And the predicted value in epoch-10, [0.516938 0.483062] shows it is class-0, and [0.48051901 0.51948099] shows it is class-1.
 ```
 [[1. 0.]] [[0.86992463 0.13007537]]
 [[0. 1.]] [[0.12770694 0.87229306]]
