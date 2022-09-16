@@ -104,7 +104,7 @@ save(model, "model_lake/03_xor_model_io.thu")
 
 ### Training Result
 By use model checkpoints, you will be able to get constant results. The saving and loading step in the tutorial save the training time in getting the correct model.
-There is a confidential level of 100% to reproduce the result if you use a pretrained correct model. You will constantly get the same correct model using the pretrain-finetune pattern. 
+There is a confidential level of 100% to reproduce the result if you use a pretrained correct model, e.g. [xor-model](https://transformers-model.obs.cn-north-4.myhuaweicloud.com/thunet/xor/03_xor_model_io.thu). You will constantly get the same correct model using the pretrain-finetune pattern. 
 We print the actual value followed by the predicted value.
 The model cannot predict exact same as the actual value, but using `argmax` function, we are able to tell the correct class.
 
