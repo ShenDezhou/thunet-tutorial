@@ -78,6 +78,8 @@ X_train = np.array(X)
 y_train = np.eye(len([0, 1]))[Y]
 
 #### Pretrained Model Loading
+This is for a finetune process, if training from the beginning, this is not necessary.
+
 model = {
     "q":wq_layer,
     "k":wk_layer,
