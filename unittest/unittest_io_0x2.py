@@ -1,4 +1,3 @@
-import pickle
 import sys
 sys.path.append("../../thunet")
 
@@ -14,8 +13,6 @@ from thunet.neural_nets.utils import minibatch
 from thunet.neural_nets.utils.disks import save, load
 
 PRETRAIN=False
-# print(np.finfo(np.float32))
-# smallest_normal = 1.1754944e-38   smallest_subnormal = 1.4012985e-45
 loss_func = CrossEntropy()
 sch = NoamScheduler(lr=1e-5)
 fc1_adam = Adam(lr=1e-5, lr_scheduler=sch)
@@ -29,7 +26,7 @@ model = {
     "fc_layer2": fc_layer2,
     "sm_layer": sm_layer
 }
-# save(model, "model.pt")
+
 if PRETRAIN:
     model = load("../model_lake/02_subnormal_model.thu")
     print(model)
@@ -69,9 +66,10 @@ for i in range(1000):
 
         print(y_real_batch, y_pred_batch)
         batch_loss = loss_func(y_real_batch, y_pred_batch)
-        y_pred_batch = sm_layer.backward(y_pred_batch)
-        y_pred_batch = fc_layer2.backward(y_pred_batch)
-        y_pred_batch = fc_layer1.backward(y_pred_batch)
+        y_grad = loss_func.grad(y_real_batch, y_pred_batch)
+        y_grad = sm_layer.backward(y_grad)
+        y_grad = fc_layer2.backward(y_grad)
+        y_grad = fc_layer1.backward(y_grad)
 
         sm_layer.update()
         fc_layer2.update()
